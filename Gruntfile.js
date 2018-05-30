@@ -5,19 +5,18 @@ module.exports = function (grunt) {
 
     var lessFiles = {
         "dist/neo-light.css": "less/style.less",
-        "dist/neo-dark.css": "less/dark.less",
+        "dist/neo-development.css": "less/development.less"
     };
 
     var replaceFiles = [
         {src: ['dist/neo-light.css'], dest: 'dist/neo-light.css'},
-        {src: ['dist/neo-dark.css'], dest: 'dist/neo-dark.css'}
+        {src: ['dist/neo-development.css'], dest: 'dist/neo-development.css'}
     ];
 
     var cssMinFiles = {
         'dist/neo-light.css': ['dist/neo-light.css'],
-        'dist/neo-dark.css': ['dist/neo-dark.css']
+        'dist/neo-development.css': ['dist/neo-development.css']
     };
-
 
     grunt.initConfig({
         clean: {
@@ -127,9 +126,9 @@ module.exports = function (grunt) {
                     deleteAfterEncoding: false
                 }
             },
-            dark: {
-                src: ["dist/neo-dark.css"],
-                dest: "dist/neo-dark.css",
+            development: {
+                src: ["dist/neo-development.css"],
+                dest: "dist/neo-development.css",
                 options: {
                     deleteAfterEncoding: false
                 }
@@ -138,11 +137,23 @@ module.exports = function (grunt) {
 
         fileExists: {
             scripts: Object.keys(lessFiles)
-        }
+        },
 
+        watch: {
+            less: {
+                files: ['less/*.less'],
+                tasks: ['clean', 'less', 'replace', 'cssmin']
+            },
+            livereload: {
+                options: { livereload: true },
+                files: ['dist/*']
+            }
+        }
     });
 
     // Default task(s).
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['clean', 'imagemin', 'less', 'replace', 'cssmin', 'postcss']);
     grunt.registerTask('test', ['default', 'fileExists']);
 

@@ -1,6 +1,7 @@
 @import '../node_modules/jenkins-core-theme/less/functions';
 @import '../node_modules/jenkins-core-theme/less/images';
 @import '../node_modules/jenkins-core-theme/less/codemirror';
+@import 'build-failure-analyzer';
 @import 'variables';
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
@@ -30,7 +31,7 @@ a, a:hover, a:visited, a:link {
 }
 
 h2 {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     margin-top: 2em;
     font-weight: normal;
 }
@@ -42,15 +43,24 @@ h3 {
 }
 
 #header {
-  height: 45px;
+  height: 64px;
   background-color: @color-primary;
   text-transform: uppercase;
   z-index: 1030;
   letter-spacing: 1px;
-  padding: 3px;
-  //Custom logo - path here
-  //background: url('logo.png') no-repeat, @color-primary;
-  //background-size: auto 45px, cover; 
+  padding: 0 40px 0 80px;
+  background: url('//toolbox.traveldoo.com/img/traveldoo-logo.svg') no-repeat 95px, @color-primary;
+  background-size: auto 35px, cover;
+  line-height: 45px;
+
+  #jenkins-home-link img:first-child {
+    display: none;
+  }
+
+  #jenkins-name-icon {
+    top: 15px;
+    left: 40px;
+  }
 
   .login {
     top: inherit;
@@ -64,14 +74,10 @@ h3 {
     b {
       font-weight: 400;
     }
-    //Custom logo - hide the default images, but retain the link
-    //#jenkins-home-link img {
-    //  opacity: 0;
-    //}
   }
 
   .searchbox {
-    padding: 2px 10px;
+    padding: 15px 10px;
     text-transform: none;
   }
 
@@ -184,7 +190,7 @@ table.stripped-odd tr:nth-child(odd) {
       &:hover {
         border: 0;
         background-color: @color-accent-light;
-        top: 0px;
+        top: 0;
         padding-right: 10px;
       }
     }

@@ -32,11 +32,12 @@
     "grunt-contrib-cssmin": "^0.6.2",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-less": "^1.1.0",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-image-embed": "^0.3.3",
     "grunt-postcss": "^0.9.0",
     "grunt-replace": "^1.0.1",
     "imagemin-svgo": "^6.0.0",
-    "jenkins-core-theme": "^1.1.40",
+    "jenkins-core-theme": "file:local_modules/jenkins-core-theme",
     "load-grunt-tasks": "^3.3.0",
     "pixrem": "^4.0.1",
     "postcss-encode-base64-inlined-images": "0.0.2"
