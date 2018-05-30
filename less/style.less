@@ -49,7 +49,7 @@ h3 {
   z-index: 1030;
   letter-spacing: 1px;
   padding: 0 40px 0 80px;
-  background: url('//toolbox.traveldoo.com/img/traveldoo-logo.svg') no-repeat 95px, @color-primary;
+  background: url('/userContent/traveldoo-logo.svg') no-repeat 95px, @color-primary;
   background-size: auto 35px, cover;
   line-height: 45px;
 
@@ -333,6 +333,16 @@ td {
     color: @console-white;
     font-weight: bold;
   }
+
+  .warning-inline {
+    color: @console-yellow;
+    font-weight: bold;
+  }
+
+  .error-inline {
+    color: @console-red;
+    font-weight: bold;
+  }
 }
 
 .ace_editor, .ace_editor * {
@@ -360,4 +370,9 @@ td {
     margin-bottom: 0.2em;
     margin-top: 1.5em !important;
     padding-bottom: 3px;
+}
+
+.error-inline {
+  color: #CC0000;
+  font-weight: bold;
 }
